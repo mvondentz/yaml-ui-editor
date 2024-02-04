@@ -1,0 +1,157 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome4",
+    "definitions": {
+        "Resolver": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "metadata": {
+                    "$ref": "#/definitions/Metadata"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Parameter"
+                    }
+                },
+                "points": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Point"
+                    }
+                }
+            },
+            "required": [
+                "metadata",
+                "parameters",
+                "points"
+            ],
+            "title": "Resolver"
+        },
+        "Metadata": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "owner": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "description",
+                "id",
+                "name",
+                "owner",
+                "source",
+                "url"
+            ],
+            "title": "Metadata"
+        },
+        "Parameter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "required": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "description",
+                "id",
+                "name",
+                "required",
+                "type"
+            ],
+            "title": "Parameter"
+        },
+        "Point": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "supportedValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "examples": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Example"
+                    }
+                }
+            },
+            "required": [
+                "description",
+                "examples",
+                "id",
+                "name",
+                "type"
+            ],
+            "title": "Point"
+        },
+        "Example": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".jpg"
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "value"
+            ],
+            "title": "Example"
+        }
+    }
+}
+
